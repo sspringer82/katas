@@ -3,7 +3,7 @@ BowlingGame = function() {
 };
 
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
-    this.frames = 1;
+    this.frames += 1;
     return pins1 + pins2;
 };
 
