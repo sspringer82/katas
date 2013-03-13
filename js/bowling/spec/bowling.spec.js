@@ -70,7 +70,7 @@ describe("Bowling Game", function () {
         expect(actual).toEqual(expected);
     });
 
-    /*it("should add a new object for a newly created frame in the game", function () {
+    it("should add a new object for a newly created frame in the game", function () {
         bowling.results = [ { pin1: 4, pin2: 3, result: 7} ];
         bowling.createFrame(3, 4);
 
@@ -78,6 +78,6 @@ describe("Bowling Game", function () {
         var expected = [ { pin1: 4, pin2: 3, result: 7}, { pin1: 3, pin2: 4, result: 7} ];
 
         expect(actual).toEqual(expected);
-    });*/
+    });
 
 });
