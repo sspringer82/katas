@@ -62,4 +62,22 @@ describe("Bowling Game", function () {
         expect(actual).toEqual(expected);
     });
 
+    it("should maintain the internal property correctly to document the resultset", function () {
+        bowling.createFrame(1,6);
+        var actual = bowling.results;
+        var expected = [ { pin1:1, pin2:6, result:7 } ];
+
+        expect(actual).toEqual(expected);
+    });
+
+    /*it("should add a new object for a newly created frame in the game", function () {
+        bowling.results = [ { pin1: 4, pin2: 3, result: 7} ];
+        bowling.createFrame(3, 4);
+
+        var actual = bowling.results;
+        var expected = [ { pin1: 4, pin2: 3, result: 7}, { pin1: 3, pin2: 4, result: 7} ];
+
+        expect(actual).toEqual(expected);
+    });*/
+
 });
