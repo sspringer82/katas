@@ -47,4 +47,10 @@ describe("Bowling Game", function () {
 
         expect(actual).toEqual(8);
     });
+
+    it("should count a strike as 10 points and end the frame", function () {
+        var actual = bowling.createFrame('X');
+
+        expect(actual).toEqual(10);
+    });
 });
