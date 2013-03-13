@@ -89,4 +89,17 @@ describe("Bowling Game", function () {
         expect(actual).toEqual(expected);
     });
 
+    it ("should add 20 to the first strike if two more strikes happen", function () {
+        bowling.createFrame('X');
+        bowling.createFrame('X');
+        bowling.createFrame('X');
+
+        var actual = bowling.results;
+        var expected = [
+            {pin1: 'X', pin2: undefined, result: 30},
+            {pin1: 'X', pin2: undefined, result: 20},
+            {pin1: 'X', pin2: undefined, result: 10}];
+        expect(actual).toEqual(expected);
+    });
+
 });
