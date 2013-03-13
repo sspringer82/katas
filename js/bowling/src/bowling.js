@@ -5,7 +5,6 @@ BowlingGame = function() {
 
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
     var result;
-    this.frames += 1;
 
     if (pins1 === "X") {
         result = 10;
@@ -13,7 +12,15 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
         result = pins1 + pins2;
     }
 
+    if (this.results[this.frames - 1] !== undefined) {
+        if (this.results[this.frames - 1].pin1 == "X") {
+            this.results[this.frames -1].result += result;
+        }
+    }
+
     this.results.push({ pin1:pins1, pin2:pins2, result: result });
+    this.frames += 1;
+
     return result;
 };
 
