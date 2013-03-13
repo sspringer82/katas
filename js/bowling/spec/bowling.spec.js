@@ -17,7 +17,7 @@ describe("Bowling Game", function () {
         var bowling = new BowlingGame();
         bowling.frames = 1;
 
-        var actual = bowling.remainginFrames();
+        var actual = bowling.remainingFrames();
         expect(actual).toEqual(9);
     });
 });
