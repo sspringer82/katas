@@ -1,7 +1,8 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: sspringer
- * Date: 3/13/13
- * Time: 7:41 AM
- * To change this template use File | Settings | File Templates.
- */
+describe("Bowling Game", function () {
+    it("should create the first frame with 1 and 1 pin and return 2", function () {
+        var bowling = new BowlingGame();
+        var actual = bowling.createFrame(1, 1);
+
+        expect(actual).toEqual(2);
+    });
+});
