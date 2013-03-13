@@ -4,6 +4,11 @@ BowlingGame = function() {
 
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
     this.frames += 1;
+
+    if (pins1 === "X") {
+        return 10;
+    }
+
     return pins1 + pins2;
 };
 
