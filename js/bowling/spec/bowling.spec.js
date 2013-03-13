@@ -20,4 +20,12 @@ describe("Bowling Game", function () {
         var actual = bowling.remainingFrames();
         expect(actual).toEqual(9);
     });
+
+    it("should return 8, if questioned for remaining frames if two frames are played already", function () {
+        var bowling = new BowlingGame();
+        bowling.frames = 2;
+
+        var actual = bowling.remainingFrames();
+        expect(actual).toEqual(8);
+    });
 });
