@@ -13,7 +13,7 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
         result = pins1 + pins2;
     }
 
-    this.results = [ { pin1:pins1, pin2:pins2, result: result } ];
+    this.results.push({ pin1:pins1, pin2:pins2, result: result });
     return result;
 };
 
