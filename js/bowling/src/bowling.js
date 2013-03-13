@@ -1,5 +1,6 @@
 BowlingGame = function() {
     this.frames = 0;
+    this.results = [ { pin1:2, pin2:4, result:6 } ];
 };
 
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
