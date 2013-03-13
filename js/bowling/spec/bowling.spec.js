@@ -80,4 +80,13 @@ describe("Bowling Game", function () {
         expect(actual).toEqual(expected);
     });
 
+    it ("should add 3 and 4 to result of a strike on the next frame - result 17 for the strike frame 7 for the current one", function () {
+        bowling.createFrame('X');
+        bowling.createFrame(3, 4);
+
+        var actual = bowling.results;
+        var expected = [{pin1: 'X', pin2: undefined, result: 17}, {pin1: 3, pin2: 4, result: 7}];
+        expect(actual).toEqual(expected);
+    });
+
 });
