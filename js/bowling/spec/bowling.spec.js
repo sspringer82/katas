@@ -31,4 +31,11 @@ describe("Bowling Game", function () {
         var actual = bowling.remainingFrames();
         expect(actual).toEqual(8);
     });
+
+    it("should return remainingFrames 9 if first frame is played", function () {
+        bowling.createFrame(1,1);
+        var actual = bowling.remainingFrames();
+
+        expect(actual).toEqual(9);
+    });
 });
