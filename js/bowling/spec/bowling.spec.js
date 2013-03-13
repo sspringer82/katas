@@ -53,4 +53,13 @@ describe("Bowling Game", function () {
 
         expect(actual).toEqual(10);
     });
+
+    it("should handle an internal property for holding the resultset", function () {
+        bowling.createFrame(2,4);
+        var actual = bowling.results;
+        var expected = [ { pin1:2, pin2:4, result:6 } ];
+
+        expect(actual).toEqual(expected);
+    });
+
 });
