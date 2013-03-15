@@ -108,7 +108,7 @@ describe("Bowling Game", function () {
         expect(result).toEqual(10);
     });
 
-    it ("should calculate the difference to the next frame if a spare is thrown", function () {
+    it ("should calculate 6 for the 2nd pin if 1st pin is 4 if a spare is thrown", function () {
         bowling.createFrame(4, "/");
         var results = bowling.results;
 
