@@ -108,4 +108,12 @@ describe("Bowling Game", function () {
         expect(result).toEqual(10);
     });
 
+    it ("should calculate the difference to the next frame if a spare is thrown", function () {
+        bowling.createFrame(4, "/");
+        var results = bowling.results;
+
+        var expected = [{pin1: 4, pin2: 6, result: 10}];
+
+        expect(results).toEqual(expected);
+    }) ;
 });
