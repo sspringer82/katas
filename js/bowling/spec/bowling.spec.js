@@ -102,7 +102,7 @@ describe("Bowling Game", function () {
         expect(actual).toEqual(expected);
     });
 
-    it ("should add the difference to ten to the current frame if a spare is thrown", function () {
+    it ("should return ten if a spare is thrown", function () {
         var result = bowling.createFrame(3, '/');
 
         expect(result).toEqual(10);
