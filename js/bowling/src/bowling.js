@@ -1,21 +1,41 @@
 BowlingGame = function() {
     this.frames = 0;
     this.results = [];
+
+    this.strike = [];
 };
 
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
     var result;
 
-    if (pins1 === "X") {
-        result = 10;
-    } else {
-        result = pins1 + pins2;
+
+    for (var i = 0; i < this.strike.length; i++) {
+        if (this.strike[i].pin1 === undefined && pins1 === 'X') {
+            this.strike[i].pin1 = 10;
+            this.strike[i].result += 10;
+            this.results[this.strike[i].id].result = this.strike[i].result;
+        } else if (this.strike[i].pin1 === undefined) {
+            this.strike[i].pin1 = pins1;
+            this.strike[i].pin1 = pins2;
+            this.strike[i].result += pins1 + pins2;
+            this.results[this.strike[i].id].result = this.strike[i].result;
+        } else if (this.strike[i].pin2 === undefined && pins1 === 'X') {
+            this.strike[i].pin1 = 10;
+            this.strike[i].result += 10;
+            this.results[this.strike[i].id].result = this.strike[i].result;
+        } else if (this.strike[i].pin2 === undefined) {
+            this.strike[i].pin1 = pins1;
+            this.strike[i].result += pins1;
+            this.results[this.strike[i].id].result = this.strike[i].result;
+        }
     }
 
-    if (this.results[this.frames - 1] !== undefined) {
-        if (this.results[this.frames - 1].pin1 == "X") {
-            this.results[this.frames -1].result += result;
-        }
+
+    if (pins1 === "X") {
+        result = 10;
+        this.strike.push({id: this.frames, result: 10, pin1: undefined, pin2: undefined});
+    } else {
+        result = pins1 + pins2;
     }
 
     this.results.push({ pin1:pins1, pin2:pins2, result: result });
