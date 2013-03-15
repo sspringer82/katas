@@ -8,6 +8,10 @@ BowlingGame = function() {
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
     var result;
 
+    // differ between stike and spare
+    if (pins2 === "/") {
+        return 10;
+    }
 
     for (var i = 0; i < this.strike.length; i++) {
         if (this.strike[i].pin1 === undefined && pins1 === 'X') {
