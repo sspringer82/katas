@@ -134,4 +134,13 @@ describe("Bowling Game", function () {
 
         expect(bowling.results).toEqual(expected);
     });
+
+    it ("should add 5 to the result of the previous frame if a spare was thrown with 6 in the first pin result is 15", function () {
+        bowling.createFrame(6, "/");
+        bowling.createFrame(5, 2);
+
+        var expected = [{pin1: 6, pin2: 4, result: 15}, {pin1: 5, pin2: 2, result: 7}];
+
+        expect(bowling.results).toEqual(expected);
+    });
 });
