@@ -15,8 +15,10 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
         pins2 = 10 - pins1;
     }
 
-    if (this.spare.length > 0 && this.results[this.spare[0].id] !== undefined) {
-        this.results[this.spare[0].id].result = 15;
+    for (var i = 0; i < this.spare.length; i++) {
+        if (this.spare[i].pin1 === undefined && this.results[this.spare[i].id] !== undefined) {
+            this.results[this.spare[i].id].result += pins1;
+        }
     }
 
     for (var i = 0; i < this.strike.length; i++) {
