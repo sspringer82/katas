@@ -168,4 +168,12 @@ describe("Bowling Game", function () {
 
         expect(bowling.results).toEqual(expected);
     });
+
+    it ("should be able to deal with a miss - zero points for a '-'", function () {
+        bowling.createFrame(4, '-');
+
+        var expected = [{pin1: 4, pin2: 0, result: 4}];
+
+        expect(bowling.results).toEqual(expected);
+    });
 });
