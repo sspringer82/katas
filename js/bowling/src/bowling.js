@@ -18,6 +18,7 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
     for (var i = 0; i < this.spare.length; i++) {
         if (this.spare[i].pin1 === undefined && this.results[this.spare[i].id] !== undefined) {
             this.results[this.spare[i].id].result += pins1;
+            this.spare[i].pin1 = pins1;
         }
     }
 
