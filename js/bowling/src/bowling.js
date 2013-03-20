@@ -3,6 +3,7 @@ BowlingGame = function() {
     this.results = [];
 
     this.strike = [];
+    this.spare = [];
 };
 
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
@@ -10,7 +11,12 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
 
     // differ between stike and spare
     if (pins2 === "/") {
+        this.spare.push({id: this.frames, result: 10, pin1: undefined});
         pins2 = 10 - pins1;
+    }
+
+    if (this.spare.length > 0 && this.results[this.spare[0].id] !== undefined) {
+        this.results[this.spare[0].id].result = 15;
     }
 
     for (var i = 0; i < this.strike.length; i++) {
@@ -33,7 +39,6 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
             this.results[this.strike[i].id].result = this.strike[i].result;
         }
     }
-
 
     if (pins1 === "X") {
         result = 10;
