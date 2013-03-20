@@ -152,4 +152,20 @@ describe("Bowling Game", function () {
 
         expect(bowling.results).toEqual(expected);
     });
+
+    it ("should be able to handle two spares after each other", function () {
+        bowling.createFrame(2, 4);
+        bowling.createFrame(3, "/");
+        bowling.createFrame(4, "/");
+        bowling.createFrame(3, 4);
+
+        var expected = [
+            {pin1: 2, pin2: 4, result: 6},
+            {pin1: 3, pin2: 7, result: 14},
+            {pin1: 4, pin2: 6, result: 13},
+            {pin1: 3, pin2: 4, result: 7}
+        ];
+
+        expect(bowling.results).toEqual(expected);
+    });
 });
