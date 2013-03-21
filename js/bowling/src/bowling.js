@@ -10,7 +10,16 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
     var result;
 
     if (this.frames > 8) {
-        throw new Error('Too many Frames');
+        var lastStrike = false;
+        for (var i = 0; i < this.strike.length; i++) {
+            if (this.strike[i].pin1 === undefined) {
+                lastStrike = true;
+            }
+        }
+
+        if (!lastStrike) {
+            throw new Error('Too many Frames');
+        }
     }
 
     if (pins2 === "-") {
