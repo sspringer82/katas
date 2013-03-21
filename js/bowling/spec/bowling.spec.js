@@ -184,4 +184,12 @@ describe("Bowling Game", function () {
 
         expect(bowling.results).toEqual(expected);
     });
+
+    it ("should be able to deal with two misses - zero points at all", function () {
+        bowling.createFrame('-', '-');
+
+        var expected = [{pin1: 0, pin2: 0, result: 0}];
+
+        expect(bowling.results).toEqual(expected);
+    });
 });
