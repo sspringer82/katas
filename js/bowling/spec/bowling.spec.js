@@ -206,4 +206,13 @@ describe("Bowling Game", function () {
         expect(bowling.createFrame.bind(bowling, 1, 2)).not.toThrow('Too many Frames');
     });
 
+    it ("should not be possible to play eleven frames", function() {
+        for (var i = 0; i < 9; i++) {
+            bowling.createFrame(2,2);
+        }
+
+        expect(bowling.createFrame.bind(bowling, 1, 2)).toThrow('Too many Frames');
+    });
+
+
 });
