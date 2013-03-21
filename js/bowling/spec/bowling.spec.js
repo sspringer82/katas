@@ -215,7 +215,7 @@ describe("Bowling Game", function () {
     });
 
 
-    it ("should not be possible to play eleven frames if a strike was  thrown in frame ten", function() {
+    it ("should be possible to play eleven frames if a strike was  thrown in frame ten", function() {
         for (var i = 0; i < 8; i++) {
             bowling.createFrame(2,2);
         }
@@ -224,6 +224,19 @@ describe("Bowling Game", function () {
 
         expect(bowling.createFrame.bind(bowling, 1, 2)).not.toThrow('Too many Frames');
     });
+
+    it ("should not be possible to play more than eleven frames, even if the last one was a strike", function () {
+        for (var i = 0; i < 8; i++) {
+            bowling.createFrame(2,2);
+        }
+
+        bowling.createFrame("X");
+        bowling.createFrame("X");
+
+        expect(bowling.createFrame.bind(bowling, 1, 2)).toThrow('Too many Frames');
+    });
+
+
 
 
 
