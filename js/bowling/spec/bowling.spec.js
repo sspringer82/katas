@@ -194,7 +194,7 @@ describe("Bowling Game", function () {
     });
 
     it ("should detect if there are more than 10 frames in a game", function () {
-        bowling.frames = 10;
+        bowling.frames = 9;
         expect(bowling.createFrame.bind(bowling, 1, 2)).toThrow('Too many Frames');
     });
 });
