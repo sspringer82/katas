@@ -9,6 +9,10 @@ BowlingGame = function() {
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
     var result;
 
+    if (this.frames > 8) {
+        throw new Error('Too many Frames');
+    }
+
     if (pins2 === "-") {
         pins2 = 0;
     }
