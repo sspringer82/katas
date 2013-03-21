@@ -9,6 +9,10 @@ BowlingGame = function() {
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
     var result;
 
+    if (pins2 === "-") {
+        pins2 = 0;
+    }
+
     // differ between stike and spare
     if (pins2 === "/") {
         this.spare.push({id: this.frames, result: 10, pin1: undefined});
