@@ -47,6 +47,11 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
         }
     }
 
+    if (this.frames === 10) {
+        pins1 = pins1 === "X" ? 10 : pins1;
+        pins2 = pins2 === "X" ? 10 : pins2;
+    }
+
     for (var i = 0; i < this.strike.length; i++) {
         if (this.strike[i].pin1 === undefined && pins1 === 'X') {
             this.strike[i].pin1 = 10;
@@ -68,6 +73,8 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
         }
     }
 
+
+
     if (pins1 === "X") {
         result = 10;
         this.strike.push({id: this.frames, result: 10, pin1: undefined, pin2: undefined});
@@ -76,6 +83,11 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
     }
 
     this.results.push({ pin1:pins1, pin2:pins2, result: result });
+
+    if (this.frames == 9) {
+        debugger;
+    }
+
     this.frames += 1;
 
     return result;
