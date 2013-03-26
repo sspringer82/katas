@@ -236,8 +236,28 @@ describe("Bowling Game", function () {
         expect(bowling.createFrame.bind(bowling, 1, 2)).toThrow('Too many Frames');
     });
 
+    it ("should be possible to throw two strikes in 11th frame", function(){
+        for (var i = 0; i < 8; i++) {
+            bowling.createFrame(2,2);
+        }
 
+        bowling.createFrame("X");
+        bowling.createFrame(bowling, "X","X");
 
+        var expected = [
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 2, pin2: 2, result: 4},
+            {pin1: 10, pin2: undefined, result: 30},
+            {pin1: 10, pin2: 10, result: 20}
+        ];
 
-
+        expect(bowling.results).toEqual(expected);
+    });
 });
