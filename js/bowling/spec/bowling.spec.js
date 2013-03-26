@@ -242,7 +242,7 @@ describe("Bowling Game", function () {
         }
 
         bowling.createFrame("X");
-        bowling.createFrame(bowling, "X","X");
+        bowling.createFrame("X","X");
 
         var expected = [
             {pin1: 2, pin2: 2, result: 4},
@@ -254,10 +254,12 @@ describe("Bowling Game", function () {
             {pin1: 2, pin2: 2, result: 4},
             {pin1: 2, pin2: 2, result: 4},
             {pin1: 2, pin2: 2, result: 4},
-            {pin1: 10, pin2: undefined, result: 30},
+            {pin1: 'X', pin2: undefined, result: 30},
             {pin1: 10, pin2: 10, result: 20}
         ];
 
         expect(bowling.results).toEqual(expected);
     });
+
+    // bowling.createFrame("X", 4);
 });
