@@ -9,7 +9,7 @@ BowlingGame = function() {
 BowlingGame.prototype.createFrame = function(pins1, pins2) {
     var result;
 
-    if (this.frames > 8) {
+    if (this.frames > 9) {
         var lastStrike = false;
         for (var i = 0; i < this.strike.length; i++) {
             if (this.strike[i].pin1 === undefined) {
@@ -22,7 +22,7 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
         }
     }
 
-    if (this.frames >= 10) {
+    if (this.frames >= 10 && !lastStrike) {
         throw new Error('Too many Frames');
     }
 
@@ -47,7 +47,7 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
         }
     }
 
-    if (this.frames === 10) {
+    if (this.frames > 9) {
         pins1 = pins1 === "X" ? 10 : pins1;
         pins2 = pins2 === "X" ? 10 : pins2;
     }
@@ -83,10 +83,6 @@ BowlingGame.prototype.createFrame = function(pins1, pins2) {
     }
 
     this.results.push({ pin1:pins1, pin2:pins2, result: result });
-
-    if (this.frames == 9) {
-        debugger;
-    }
 
     this.frames += 1;
 
