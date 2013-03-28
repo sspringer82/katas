@@ -194,7 +194,7 @@ describe("Bowling Game", function () {
     });
 
     it ("should detect if there are more than 10 frames in a game", function () {
-        bowling.frames = 9;
+        bowling.frames = 10;
         expect(bowling.createFrame.bind(bowling, 1, 2)).toThrow('Too many Frames');
     });
 
@@ -207,7 +207,7 @@ describe("Bowling Game", function () {
     });
 
     it ("should not be possible to play eleven frames", function() {
-        for (var i = 0; i < 9; i++) {
+        for (var i = 0; i < 10; i++) {
             bowling.createFrame(2,2);
         }
 
@@ -226,18 +226,18 @@ describe("Bowling Game", function () {
     });
 
     it ("should not be possible to play more than eleven frames, even if the last one was a strike", function () {
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 9; i++) {
             bowling.createFrame(2,2);
         }
 
         bowling.createFrame("X");
-        bowling.createFrame("X");
+        bowling.createFrame("X", "X");
 
         expect(bowling.createFrame.bind(bowling, 1, 2)).toThrow('Too many Frames');
     });
 
     it ("should be possible to throw two strikes in 11th frame", function(){
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 9; i++) {
             bowling.createFrame(2,2);
         }
 
