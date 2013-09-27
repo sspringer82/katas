@@ -1,5 +1,0 @@
-load:
-  - lib/jasmine.js
-  - lib/JasmineAdapter.js
-  - spec/bowling.spec.js
-  - src/bowling.js

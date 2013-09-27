@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/srv/dojos/javascript/FizzBuzz/spec/Diamond.spec.js.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v12">
+<meta name="syntax" content="javascript">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,prevent_copy=">
+<meta name="colorscheme" content="macvim">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.String { color: #4a708b; }
+.Statement { color: #b03060; font-weight: bold; }
+.Comment { color: #0000ee; font-style: italic; }
+.Identifier { color: #458b74; }
+-->
+</style>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="Comment">/*global describe, it, expect, fizzbuzz*/</span>
+
+describe(<span class="String">&quot;FizzBuzz&quot;</span>, <span class="Identifier">function</span> () <span class="Identifier">{</span>
+    <span class="String">&quot;use strict&quot;</span>;
+
+    <span class="Identifier">var</span> map = <span class="Identifier">[</span>
+        <span class="String">''</span>, 1, 2, <span class="String">'fizz'</span>, 4, <span class="String">'buzz'</span>, <span class="String">'fizz'</span>,
+        7, 8, <span class="String">'fizz'</span>, <span class="String">'buzz'</span>, 11, <span class="String">'fizz'</span>, 13,
+        14, <span class="String">'fizzbuzz'</span>, 16, 17, <span class="String">'fizz'</span>, 19,
+        <span class="String">'buzz'</span>, <span class="String">'fizz'</span>, 22, 23, <span class="String">'fizz'</span>, <span class="String">'buzz'</span>,
+        26, <span class="String">'fizz'</span>, 28, 29, <span class="String">'fizzbuzz'</span>
+    <span class="Identifier">]</span>, i, bindFunc,
+
+        func = <span class="Identifier">function</span> (x, y) <span class="Identifier">{</span>
+            expect(fizzbuzz(x)).toEqual(y);
+        <span class="Identifier">}</span>;
+
+    <span class="Statement">for</span> (i = 1; i &lt; map.length; i += 1) <span class="Identifier">{</span>
+        bindFunc = func.bind(<span class="Identifier">this</span>, i, map<span class="Identifier">[</span>i<span class="Identifier">]</span>);
+        it(<span class="String">&quot;should return &quot;</span> + map<span class="Identifier">[</span>i<span class="Identifier">]</span> + <span class="String">&quot; if &quot;</span> + i + <span class="String">&quot; is provided&quot;</span>, bindFunc);
+    <span class="Identifier">}</span>
+<span class="Identifier">}</span>);
+</pre>
+</body>
+</html>
